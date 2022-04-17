@@ -30,3 +30,30 @@ String이란, 처음부터 끝까지 모두 글자로만 이루어진 묶음을 
 
 integer / float / string 은 인간 밀접한 데이터타입이다.
 
+#2.2 #2.3
+변수는 더 게을러지기 위해서이다.
+console.log(5+2);
+console.log(5-2);
+console.log(5*2);
+console.log(5/2);
+5대신 6을 넣고 싶을때, 4번을 바꿀 것을 한번에 바꿀 수는 없을까?
+variable이 필요한 순간
+
+const : 상수, 바뀌지 않음을 의미함. 계속  유지됨
+let : 중간에 변경 가능한 변수
+처음에 정의내릴때는 let a = ~ 와 같이 let을 쓰지만,
+이후에 a 변수를 변경할 때에는 let을 붙이지 않는다.
+
+만일 const 로 생성한 변수를 이후에 바꾸려고 하면
+Uncaught TypeError : Assignment to constant variable
+~ constant variable에 새로운 값을 대입할 수 없다고 에러를 출력한다.
+즉, 한번 const 로 정의내리면 다시는 업데이트 할 수 없다.
+
+var이라는 과거 명령어가 있었는데, 호이스팅 관련해 문제가 있었다.
+https://www.youtube.com/watch?v=61iolhWgQt0
+https://www.howdy-mj.me/javascript/var-let-const/
+
+결국 
+주로 Const를 쓰고
+가끔씩 let을 쓰고
+절대로 var는 쓰지 말것.
