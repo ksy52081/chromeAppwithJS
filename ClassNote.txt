@@ -57,3 +57,20 @@ https://www.howdy-mj.me/javascript/var-let-const/
 주로 Const를 쓰고
 가끔씩 let을 쓰고
 절대로 var는 쓰지 말것.
+
+
+#2.4 bOOLEAN
+const a = true; 가 맞지
+const a = "true"; 는 아니다. 
+
+const a = null;
+은 false와는 다르다. false는 a의 값이 false인 것이고
+null은 정의되어진 변수 a 속에 "값이 없음"으로 채워져 있다.
+※null은 절대로 자연적으로 발생하지 않는다
+우리가 의도를 가지고 명징하게 "저기엔 아무것도 없다"를 정의해야지만 발생한다.
+파이썬에서는 None을 쓴다.
+
+const a ;
+원래 변수를 정의하면, 변수를 부를 이름과, 이름에 대응하는 값 value가 있어야 한다.
+변수의 이름을 정의했으나, 이름에 대응되는 값이 존재하지 않을 때, undefined인 상태이다.
+컴퓨터의 메모리 속에는 존재하지만, 값이 들어가 있지 않다.
