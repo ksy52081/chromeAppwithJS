@@ -15,3 +15,18 @@ Link: 를 쳐서 link:css를 선택하면, css를 불러오는 포맷을 자동�
 
 반면에 JS는 일반적으로 HTML의 head가 아닌 Body에서 불러온다.
 
+
+#2.1
+Javascirpt에는 type이 있고, 어떻게 쓰일지를 안다.
+integer
+float 
+2+2 를 작성하면, 2는 integer이며, +를 통해 덧셈을 수행할 수 있음을 안다.
+1, 2, 3, 3.5는 js가 숫자란걸 알아먹는다. 1, 1.5 등은 값value를 가진다.
+
+But, text는 다르다.
+hello 라고 그냥 치면~ 정의되어 있지 않다고 에러를 출력한다.
+"hello"라고 작성해야지 이것이 text, 정확히는 string임을 인지한다.
+String이란, 처음부터 끝까지 모두 글자로만 이루어진 묶음을 의미한다.
+
+integer / float / string 은 인간 밀접한 데이터타입이다.
+
