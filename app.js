@@ -26,3 +26,24 @@ arrayDaysOfWeek.push("sun")
 console.log(arrayDaysOfWeek[4])
 
 const nonsence = [1,"hello", false, null, true, undefined, "SY"];
+
+
+const playerName = "nico";
+const playPoints = 121212;
+const playerHandsome = true;
+const playerFat = "little bit";
+
+const player = {
+    name : "nico",
+    points: 10,
+    fat:true
+};
+console.log(player);
+console.log(player.name);
+console.log(player["name"]);
+// object는 업데이트가 가능하다.
+player.fat = false;
+//  존재하지 않는 property를 새로 추가할 수 있다.
+player.height = 175;
+
+player.points = player.points + 15;
