@@ -47,3 +47,35 @@ player.fat = false;
 player.height = 175;
 
 player.points = player.points + 15;
+
+function sayHello(){
+     console.log("Hello! my name is ")
+}
+
+function introduce(nameofPerson, age){
+    console.log("Hello my name is" + nameofPerson + "and I'm " + age + "old.")
+};
+
+introduce("nico", 27);
+introduce("Kim", 31);
+introduce("dany", 19); 
+
+function plus(fstnum, sndnum){
+    console.log(fstnum + sndnum);
+}
+
+function divide(a,b){
+    console.log(a/b);
+}
+console.log(fstnum);
+
+
+const player = {
+    name : "kim",
+    sayHello: function(otherPersonsName){
+        console.log("hello!" + otherPersonsName + "nice to meet you")
+    }
+// 밖에 있을 때 함수 선언하는 거랑 조금 다르지
+}
+
+player.sayHello("Lynn");
