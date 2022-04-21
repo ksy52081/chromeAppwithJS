@@ -81,20 +81,49 @@ const player = {
 player.sayHello("Lynn");
 
 
-const calculator = {
+
+const showcalculator = {
     add : function(a,b){
         console.log(a+b);
     },
     minus : function(a,b){
-        console.log(a-b);
+        alert(a-b);
     },
     multiple : function(a,b){
         console.log(a*b);
     },
     divide : function(a,b){
-        console.log(a/b);
+        alert(a/b);
+        return "hello!"
     },
     powerby : function(a,b){
-        console.log(a**b);
+        return (a**b);
     },
 };
+
+
+const calculator = {
+    add : function(a,b){
+        return (a+b);
+    },
+    minus : function(a,b){
+        return (a-b);
+    },
+    times : function(a,b){
+        return (a*b);
+    },
+    divide : function(a,b){
+        return (a/b);
+    },
+    power : function(a,b){
+        return (a**b);
+    },
+};
+
+// return으로 값을 받을 수 있으면 아래와 같은 일을 할 수 있게 된다.
+const plusResult = calculator.add(2,3);
+const minusResult = calculator.minus(plusResult, 10);
+const timesResult = calculator.times(10, minusResult);
+const divideResult = calculator.divide(timesResult,plusResult);
+const powerResult = calculator.power(divideResult, minusResult);
+console.log(powerResult);
