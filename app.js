@@ -79,3 +79,22 @@ const player = {
 }
 
 player.sayHello("Lynn");
+
+
+const calculator = {
+    add : function(a,b){
+        console.log(a+b);
+    },
+    minus : function(a,b){
+        console.log(a-b);
+    },
+    multiple : function(a,b){
+        console.log(a*b);
+    },
+    divide : function(a,b){
+        console.log(a/b);
+    },
+    powerby : function(a,b){
+        console.log(a**b);
+    },
+};
