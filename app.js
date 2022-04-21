@@ -127,3 +127,32 @@ const timesResult = calculator.times(10, minusResult);
 const divideResult = calculator.divide(timesResult,plusResult);
 const powerResult = calculator.power(divideResult, minusResult);
 console.log(powerResult);
+
+
+// #if 문 사용하기
+
+const age = parseInt(prompt("How old are you?"));
+// prompt는 메세지를 던지고, 입력값을 받아온다.
+// 가장 원초적인 방식이다. 값을 입력을 하기 전까지는 이후의 코드를 읽기를 멈춘다.
+// 디자인을 바꿀수 없고, 코드가 멈추는 무식한 특성때문에 요즘은 잘 쓰지 않는다.
+console.log(age);
+console.log(typeof(age));
+console.log(parseInt(age));
+
+console.log(isNaN(age));
+
+if (isNaN(age) || age < 0){
+    console.log("Plz write a positive number");
+}else if(age < 19){
+    console.log("U R too young");
+}else if(age >=18 && age <=50){
+    console.log("U can Drink")
+}else if(age>50 && age <=80){
+    console.log("U should exercise to be healthy")
+}else if (age === 100){
+    console.log("U R Wise")
+}else if (age >80){
+    console.log("U can do whatever you want")
+}else if (age !== 100){
+    console.log("이 조건문에 올리가 없겠지")
+}
