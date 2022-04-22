@@ -133,3 +133,25 @@ Not a Number의 준말이다.
 
 ※ 함수 속에서 임의로 불려진 argument 변수들은 내부에서만 통용될 뿐,
 함수 밖으로 나갔을 때에는 휘발되어서 존재하지 않는다.
+
+
+
+#3.0
+devtool console에다 document를 작성하면  html을 보여준다.
+(이미 js는 html과 연결되어 있다.)
+이처럼 document는 브라우저에 이미 존재하는 object이다. 
+누구나 접근할수 있는 html을 가리키는 객체이다./
+
+//console.dir(document)
+를 처보면 알 수 있듯, 그냥 하나의 object에 불과하다. 걱정말 것
+document.title 로 가보면 html에 설정해둔 Momentum이란 이름이 저장되어 있음을 알 수 있다.
+JS에서 title을 정의한 적 없음에도 document가 html을 보여주는것.
+※ HTML 코드를 javascript의 관점에서 보고 있다.
+
+콘솔에서 
+document.title = "hi"
+를 입력하면
+탭에 보여지던 Momentum 타이틀이 hi로 즉시 바뀌는 걸 볼 수 있다.
+콘솔에 document를 써서 열었을때 <title> 안에 내용도 hi로 바뀌어있다.
+물론 새로고치면 기존의 html에서 가져오므로 title도 원상복귀된다.
+
