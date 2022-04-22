@@ -155,3 +155,17 @@ document.title = "hi"
 콘솔에 document를 써서 열었을때 <title> 안에 내용도 hi로 바뀌어있다.
 물론 새로고치면 기존의 html에서 가져오므로 title도 원상복귀된다.
 
+#3.1
+html에는
+<h1 id="title"> grab me! </h1>
+
+console에는
+document.getElementById("title")
+
+
+우리가 하고 있는 것은 html을 수정하고 있지만
+그걸 JS에서 확인한다.
+JS는 이 html element를 가지고 오지만 html 자체를 보여주지 않는다.
+
+eg: html에 autofocus를 집어넣으면, js 콘솔에서 document.autofocus가 true 를 가진다.
+
