@@ -295,3 +295,27 @@ function handleTitleClick(){
 js 함수를 거치면 이전의 className은 깡그리 잊어버리고 무조건 정해진대로 바뀐다.
 되돌리려 해도 잊어버린 className을 기억할 방법이 없는 문제가 있다.
 -> 그렇다면 수행 했다가 "되돌리는" 방법은 없을까? ->#3.8
+
+#3.8 
+classList를 사용하면 기억하고 되둘리는 것이 가능하다.
+classList를 사용해 classlist.add 를 사용해 새로운 class를 추가하면
+<h1 class = "originalClass addedClass"> ~~~ </h1> 
+꼴을 만들 수 있다.
+아래와 같이 작성한다 
+
+####################
+const h1 = document.querySelector("div.hello:first-child h1:first-child");
+function handleTitleClick(){
+    const clickedClass = "click_turnOn"
+    if (h1.classList.contains(clickedClass)){
+        h1.classList.remove(clickedClass); //h1.className = ""; 대신
+    }else{
+        h1.classList.add(clickedClass);    //h1.className = clickedClass; 대신
+        // h1.className은 getter 이자 setter 이므로, 조건문에서 ===로 get 할수도, 함수에서 =로 set 할수도 있다.
+    }
+}
+####################
+
+classlist 에 add remove를 수행하는게 원채 잦다보니 이 행동 자체를 함수로 만들었다.
+
+

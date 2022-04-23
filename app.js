@@ -81,7 +81,7 @@
 // }
 // window.addEventListener("online", handleWindowOnline);
 
-
+// //#3.6
 // const h1 = document.querySelector("div.hello:first-child h1:first-child");
 // function handleTitleClick(){
 //     // console.log(h1.style.color);
@@ -98,14 +98,38 @@
 // }
 // h1.addEventListener("click", handleTitleClick);
 
+// // #3.7
+// const h1 = document.querySelector("div.hello:first-child h1:first-child");
+// function handleTitleClick(){
+//     const clickedClass = "click_turnOn"
+//     if (h1.className===clickedClass){
+//         h1.className = "";
+//     }else{
+//         h1.className = clickedClass;
+//         // h1.className은 getter 이자 setter 이므로, 조건문에서 ===로 get 할수도, 함수에서 =로 set 할수도 있다.
+//     }
+// }
+// // 변경하고자 하는 element가 기존에 어떤 className을 가지고 있던
+// // js 함수를 거치면 이전의 className은 깡그리 잊어버리고 무조건 정해진대로 바뀐다.
+// // 되돌리려 해도 잊어버린 className을 기억할 방법이 없는 문제가 있다.
+
+// #3.8
+// classList를 사용하자.
 
 const h1 = document.querySelector("div.hello:first-child h1:first-child");
 function handleTitleClick(){
     const clickedClass = "click_turnOn"
-    if (h1.className===clickedClass){
-        h1.className = "";
+    if (h1.classList.contains(clickedClass)){
+        h1.classList.remove(clickedClass); //h1.className = ""; 대신
     }else{
-        h1.className = clickedClass;
+        h1.classList.add(clickedClass);    //h1.className = clickedClass; 대신
         // h1.className은 getter 이자 setter 이므로, 조건문에서 ===로 get 할수도, 함수에서 =로 set 할수도 있다.
     }
 }
+h1.addEventListener("click", handleTitleClick);
+// 원채 자주 쓰이는 기능이다보니 classList.toggle() 함수로 정의내려져 있다.
+const h1 = document.querySelector("div.hello:first-child h1:first-child");
+function handleTitleClick(){
+    h1.classList.toggle("click_turnOn");
+}
+h1.addEventListener("click", handleTitleClick);
