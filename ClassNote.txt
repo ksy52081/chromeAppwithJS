@@ -223,3 +223,45 @@ title1_2.onclick = handleTitleClick
 ※document.head document.body document.title은 가능하나 (얘네들은 아주 중요해서...)
 document.div 같은 건 없다.
 불러오고 싶거들랑 querySelector / getElementById 같은 함수를 써야한다.
+
+
+#3.6 #3.7 #3.8 CSS in javascript
+JS를 이용해서, 글자를 한번씩 클릭할때마다 바탕화면이 파란색 -> 주황색 -> 파란색 -> 주황색으로 전환 되면 좋겠어
+
+#####################
+const h1 = document.querySelector("div.hello:first-child h1:first-child");
+function handleTitleClick(){
+    console.log(h1.style.color);
+    h1.style.color="blue";
+    console.log(h1.style.color);
+}
+h1.addEventListener("click", handleTitleClick);
+###################
+이러면 결과는
+''''''''''''''''''
+(출력안됨)
+blue
+'''''''''''''''''
+가 나온다.
+
+원하는 액션을 취하려면 아래와 같이 작성해야 한다
+####################
+const h1 = document.querySelector("div.hello:first-child h1:first-child");
+function handleTitleClick(){
+    // console.log(h1.style.color);
+    // h1.style.color="blue";
+    // console.log(h1.style.color);
+    const currentcolor = h1.style.color;
+    let newColor; //아무것도 안들어있고, 업데이트 가능한 변수생성
+    if(currentcolor==="blue"){
+        newColor= "tomato"
+    }else{
+        newColor="blue"
+    }
+    h1.style.color = newColor; 
+}
+h1.addEventListener("click", handleTitleClick);
+###################
+// element의 style을 js에서 변경하는걸 선호하지 않는다(다른 언어를 섞으면 귀찮아질 수도 있다 )
+이미지와 디자인의 변형에 대한 내용은 css 파일에서 css의 문법으로 하는것이 바람직하다
+
