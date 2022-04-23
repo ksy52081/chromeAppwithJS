@@ -169,3 +169,24 @@ JS는 이 html element를 가지고 오지만 html 자체를 보여주지 않는
 
 eg: html에 autofocus를 집어넣으면, js 콘솔에서 document.autofocus가 true 를 가진다.
 
+
+#3.2
+html에서, id는 사용하기 편리하지만
+보통 class name을 사용하거나 둘 다 사용한다.
+
+그래서 document.getElementById가 아닌
+document.getElementByClassName을 사용한다. 출력값은 object 자체가 아닌 array이다.
+document.getElementByTagName은 element에 해당하는 것들을 찾아준다.anchor, div, selection, button 과 같은 것을 
+
+Nico가 가장 선호하는 element 찾기 함수는
+document.querySelector (여러개가 있으면 첫번째 하나만)
+document.querySelectorAll (여러개가 있으면 모두다, array로 가져온다)
+이다.
+element를 css 방식(css 노테이션으로)으로 검색할 수 있다. 
+css selector를 쓴다고 그렇게 명명된거임
+
+// css selector 인 . 을 넣고
+// hello라는 classname을 특정지은 다음
+// 그 중에서도 그 안에 있는 h1을 요청한다.
+// className의 selector .
+// id의 selector #
