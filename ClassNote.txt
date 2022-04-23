@@ -148,6 +148,8 @@ document.title 로 가보면 html에 설정해둔 Momentum이란 이름이 저�
 JS에서 title을 정의한 적 없음에도 document가 html을 보여주는것.
 ※ HTML 코드를 javascript의 관점에서 보고 있다.
 
+//console.dir는 element object의 내부까지 볼 수 있다.
+
 콘솔에서 
 document.title = "hi"
 를 입력하면
@@ -190,3 +192,34 @@ css selector를 쓴다고 그렇게 명명된거임
 // 그 중에서도 그 안에 있는 h1을 요청한다.
 // className의 selector .
 // id의 selector #
+
+
+#3.3 Event
+
+const title1_2 = document.querySelector("div.hello:first-child h1:nth-child(2)");
+function handleTitleClick(){
+    console.log("title1_2 was clicked!");
+};
+title1_2.addEventListener("click", handleTitleClick);
+// 내가 직접 실행 버튼을 누르지 않고, title1_2라는 element에게 click이라는 event가 발생했을 때 handleTitleClick이라는 함수가 실행되었으면 좋겠다.
+// addEventListner에서, 수행을 원하는 함수를 입력할 때 절대 괄호()를 넣지 않는다/
+//()는 실행버튼이다. 함수에 가야할 함수 이름만 넣고 유저가 특정 대상에 특정 액션을 취할 때만 실행버튼을 대신 눌러주는 방식이다.
+
+
+//어떤 이벤트 조건을 달 수 있는가 확인하려면
+구글에서 h1 html element mdn으로 검색해라 
+HTML element와 javascript element는 다르니 요주의 할것(web apis: js관점의 html heading element라는 의미임)
+https://developer.mozilla.org/ko/docs/Web/API/HTMLElement
+아니면,
+console.dir("니가불러온 element : title") 을 출력시키면 나오는 수많은 properties 들중, on으로 시작하는 모든것이 이벤트
+
+보통 이벤트를 설정할 때 
+title1_2.addEventListener("click", handleTitleClick);
+식으로 작성하지만, 
+title1_2.onclick = handleTitleClick
+로도 작성 가능하다.
+
+
+※document.head document.body document.title은 가능하나 (얘네들은 아주 중요해서...)
+document.div 같은 건 없다.
+불러오고 싶거들랑 querySelector / getElementById 같은 함수를 써야한다.
