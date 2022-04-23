@@ -82,18 +82,30 @@
 // window.addEventListener("online", handleWindowOnline);
 
 
+// const h1 = document.querySelector("div.hello:first-child h1:first-child");
+// function handleTitleClick(){
+//     // console.log(h1.style.color);
+//     // h1.style.color="blue";
+//     // console.log(h1.style.color);
+//     const currentcolor = h1.style.color;
+//     let newColor; //아무것도 안들어있고, 업데이트 가능한 변수생성
+//     if(currentcolor==="blue"){
+//         newColor= "tomato"
+//     }else{
+//         newColor="blue"
+//     }
+//     h1.style.color = newColor; // element의 style을 js에서 변경하는걸 선호하지 않는다(다른 언어를 섞으면 귀찮아질 수도 있다 ~ css 파일에서 하자.)
+// }
+// h1.addEventListener("click", handleTitleClick);
+
+
 const h1 = document.querySelector("div.hello:first-child h1:first-child");
 function handleTitleClick(){
-    // console.log(h1.style.color);
-    // h1.style.color="blue";
-    // console.log(h1.style.color);
-    const currentcolor = h1.style.color;
-    let newColor; //아무것도 안들어있고, 업데이트 가능한 변수생성
-    if(currentcolor==="blue"){
-        newColor= "tomato"
+    const clickedClass = "click_turnOn"
+    if (h1.className===clickedClass){
+        h1.className = "";
     }else{
-        newColor="blue"
+        h1.className = clickedClass;
+        // h1.className은 getter 이자 setter 이므로, 조건문에서 ===로 get 할수도, 함수에서 =로 set 할수도 있다.
     }
-    h1.style.color = newColor; // element의 style을 js에서 변경하는걸 선호하지 않는다(다른 언어를 섞으면 귀찮아질 수도 있다 ~ css 파일에서 하자.)
 }
-h1.addEventListener("click", handleTitleClick);

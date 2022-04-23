@@ -265,3 +265,33 @@ h1.addEventListener("click", handleTitleClick);
 // element의 style을 js에서 변경하는걸 선호하지 않는다(다른 언어를 섞으면 귀찮아질 수도 있다 )
 이미지와 디자인의 변형에 대한 내용은 css 파일에서 css의 문법으로 하는것이 바람직하다
 
+#3.7
+css파일에서 .~~~~~ 와 같은 새로운 클래스를 생성해 변경점을 반영하고
+JS 파일에서 변경하고 싶은 element의 className을 .~~~~~로 변경함으로써 문제를 해결한다.
+
+##########app.js#########
+const h1 = document.querySelector("div.hello:first-child h1:first-child");
+function handleTitleClick(){
+    const clickedClass = "click_turnOn"
+    if (h1.className===clickedClass){
+        h1.className = "";
+    }else{
+        h1.className = clickedClass;
+        // h1.className은 getter 이자 setter 이므로, 조건문에서 ===로 get 할수도, 함수에서 =로 set 할수도 있다.
+    }
+}
+###################
+
+#########style.css##########
+.click_turnOn{
+    color : tomato;
+    transition: color .5s ease-in-out;
+    /* 천천히 색변환 */
+}
+###################\
+
+하지만 이런 방식은 심각한 오류를 야기한다.
+변경하고자 하는 element가 기존에 어떤 className을 가지고 있던
+js 함수를 거치면 이전의 className은 깡그리 잊어버리고 무조건 정해진대로 바뀐다.
+되돌리려 해도 잊어버린 className을 기억할 방법이 없는 문제가 있다.
+-> 그렇다면 수행 했다가 "되돌리는" 방법은 없을까? ->#3.8

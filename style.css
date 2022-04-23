@@ -1,3 +1,13 @@
 body{
     background-color:beige ;
 }
+
+h1{
+    color : cornflowerblue;
+}
+
+.click_turnOn{
+    color : tomato;
+    transition: color .5s ease-in-out;
+    /* 천천히 색변환 */
+}
