@@ -349,3 +349,15 @@ loginButton.addEventListener("click", onLoginBtnClick);
 ##################
 
 html의 고유 기능에도 적합성 평가를 넣을 수 있다.
+
+<form> element,
+<input> element 속 required 를 사용하면
+굳이 js에서 적합성 조건과, 그 경우 어떤 메세지를 보낼지 일일이 정하지 않더라도
+html 선에서 "입력란에 입력하세요" 메세지가 뜬다.
+
+JS까지 갈 필요 없이 HTML 안에서 
+<form> element 안에 있는 버튼을 누르거나
+<input type="submit" value="~~~" /> 처럼 type="submit" 을 넣을경우
+클릭과 동시에 submit이 이루어진다.
+엔터를 누르고, input이 더이상 존재하지 않는다면 submit이 된다.
+하지만 submit이 가동되면 웹사이트가 자동으로 새로고침을 수행한다 ㄷㄷ

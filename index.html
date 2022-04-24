@@ -8,10 +8,16 @@
     <title>Momentum App</title>
 </head>
 <body>
-    <div id="login-form">
-        <input type="text" placeholder="What is your name?"/>
+    <form id="login-form">
+        <input
+        required
+        maxlength="15"
+        type="text"
+        placeholder="What is your name?"
+        />
+        <!-- js가 아닌 html에서 입력 데이터의 적합성을 규정한다 -->
         <button>Log in</button>
         <script src="app.js"></script>
-    </div>
+    </form>
 </body>
 </html>
