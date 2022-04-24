@@ -326,3 +326,26 @@ class 혹은 id를 써서 구분을 시키되, 중복이 없도록 조심할 것
 // const loginInput = loginform.querySelector("input");
 
 //const loginInput = document.querySelector("#login-from input");
+
+
+input 칸에 입력할 수 있는 내용의 적합성 평가 (빈칸 안됨, 너무 길면 안됨 등등...)
+을 js를 이용해 아래 처럼 작성할 수 있으나
+###################
+const loginInput = document.querySelector("#login-from input");
+const loginButton = document.querySelector("#login-from button");
+
+function onLoginBtnClick(){
+    // console.dir(loginInput);
+    const username = loginInput.value;
+    if (username === ""){
+        alert("Plz write your name");
+    } else if (username.length > 15){
+        alert("your name is too long");
+
+    }
+    console.log("clicked!")
+}
+loginButton.addEventListener("click", onLoginBtnClick);
+##################
+
+html의 고유 기능에도 적합성 평가를 넣을 수 있다.

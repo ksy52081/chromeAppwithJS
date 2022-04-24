@@ -3,9 +3,13 @@ const loginButton = document.querySelector("#login-from button");
 
 function onLoginBtnClick(){
     // console.dir(loginInput);
-    console.log(loginInput.value);
+    const username = loginInput.value;
+    if (username === ""){
+        alert("Plz write your name");
+    } else if (username.length > 15){
+        alert("your name is too long");
+
+    }
     console.log("clicked!")
-
 }
-
 loginButton.addEventListener("click", onLoginBtnClick);
