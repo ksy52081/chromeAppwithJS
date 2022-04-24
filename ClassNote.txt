@@ -319,3 +319,10 @@ function handleTitleClick(){
 classlist 에 add remove를 수행하는게 원채 잦다보니 이 행동 자체를 함수로 만들었다.
 
 
+
+class 혹은 id를 써서 구분을 시키되, 중복이 없도록 조심할 것
+아래의 두 코드는 같은 의미이다. 
+// const loginform = document.querySelector("#login-form");
+// const loginInput = loginform.querySelector("input");
+
+//const loginInput = document.querySelector("#login-from input");
