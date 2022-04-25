@@ -366,6 +366,18 @@ form 의 submit에서 새로고침은 default 기본동작이다.
 login 버튼을 클릭하면 submit  하는 기능도 html에서 구현되므로,
 JS에서 loginBtn 과, 클릭시 작용하는 액션 등을 정의할 필요도 없어진다.
 
+##########################
+const link = document.querySelector("a");
+
+function handleLinkClick(event){
+    event.preventDefault();
+    console.dir(event)
+    // alert("clicked")
+    // 앞서 이야기했듯, alert가 가동되면 alert가 종료되기 전까지 모든 행동이 멈춘다.
+}
+
+link.addEventListener("click", handleLinkClick)
+##########################
 
 //////////////////// 중요 ////////////////////////////////////////
 
@@ -414,3 +426,15 @@ greeting.innerText = `Hello ${username}`;
 중요한 규칙 두가지
 1) 원하는 입력값의 주위에 ${} 로 감싼다.
 2) ""(Double quoto) 나 ''(single quoto) 이 아닌 ``(Backtick)을 써야한다.
+
+#4.5
+이미 볼륨을 기억하는 등 기억하기 기능은 흔히들 늘상 있어왔다.
+사용하는 API 는 local starage이다.
+이미 존재하며, 우리가 브라우저에 뭔가를 저장할 수 있게 해준다.~ 나중에 가져다 쓸 수 있게 해준다.
+
+위치 : devtools > application > LNB 쪽에 Local Storage가 있음 
+https://developer.mozilla.org/ko/docs/Web/API/Window/localStorage
+localStorage.setItem("username", "syKim");
+localStorage.getItem("username")
+localStorage.removeItem("username")
+
