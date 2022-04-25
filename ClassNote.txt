@@ -375,6 +375,10 @@ console.log(event);
 }
 
 loginForm.addEventListener("submit", onLoginSubmit); // submit 이벤트가 발생한다면, onLoginSubmit함수를 실행시킨다는 의미 // JS는 onLoginSubmit함수 호출시 인자를 담아서 호출함. 해당 인자는 event object를 담은 정보들
+addEventListener 속에 입력된 함수는 우리가 가동시키는게 아니라
+addEventListner가 "방금 일어난 이벤트에 대한 정보"를 변수로 넣고
+onLoginSubmit({information about the event that just happened})
+처럼 가동되는 것이다.
 
 ★ 중요 ★
 form을 submit하면 브라우저는 기본적으로 페이지를 새로고침 하도록 되어있다. << 우리가 원하는 것이 아님!
@@ -383,4 +387,30 @@ preventDefault() 함수를 추가함으로써 브라우저의 기본 동작을 �
 이 preventDefault 함수는 EventListener 함수의 '첫 번째 argument' 안에 있는 함수이다. 첫 arument는 지금 막 벌어진 event들에 대한 정보를 갖고 있다.
 JS는(기본적으로)argument를 담아서 함수를 호출하는데, 이 argument가 기본 정보들을 제공하고 있다. ex) 누가 submit주체인지, 몇 시에 submit을 했는지 등등 콘솔에 출력해보면 알 수 있음
 
+
 ////////////////////////////////////////////////////////////
+
+
+#4.4 
+어떤 액션 이후에 레이아웃이 사라지는 방법
+option 1) HTML 요소 자체를 제거하는 방법
+option 2) css를 이용해 숨기는 방법
+
+.hidden{
+    display: none;
+}
+
+ 비어있는 곳에 원하는 글자를 집어넣을때
+const greeting = document.querySelector("#greeting");
+greeting.innerText = "Hello" + username
+
+※ 일반적으로 string만 포함한 변수는 대문자로 표기하고, String을 저장하고 싶을때 사용한다.
+eg ~ const HIDDEN_CLASSNAME = "hidden"
+
+※ 아래 두 코드는 출력 값이 같다
+const username = loginInput.Value;
+greeting.innerText = "Hello" + username;
+greeting.innerText = `Hello ${username}`;
+중요한 규칙 두가지
+1) 원하는 입력값의 주위에 ${} 로 감싼다.
+2) ""(Double quoto) 나 ''(single quoto) 이 아닌 ``(Backtick)을 써야한다.

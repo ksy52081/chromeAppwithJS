@@ -1,15 +1,15 @@
 const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("#login-form input");
+const greeting = document.querySelector("#greeting");
+const HIDDEN_CLASSNAME = "hidden"
 
-
-function onLoginSubmit(tomato){
-    tomato.preventDefault();
-    console.log(tomato);
-    console.log(loginInput.value);
-    // onLoginSubmit에 대한 argument를 받아온다!(?)
-    // onLoginSubmit에 대한 default 기본 행동을 발생하지 않도록 막는다
-    // const username = loginInput.value;
-    // console.log(username);
+function onLoginSubmit(event){
+    event.preventDefault();
+    const username = loginInput.Value;
+    loginForm.classList.add(HIDDEN_CLASSNAME);
+    greeting.innerText = "Hello" + username;
+    greeting.innerText = `Hello ${username}`;
+    greeting.classList.remove(HIDDEN_CLASSNAME);
 }
 
 const link = document.querySelector("a");
