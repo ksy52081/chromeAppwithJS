@@ -361,3 +361,26 @@ JS까지 갈 필요 없이 HTML 안에서
 클릭과 동시에 submit이 이루어진다.
 엔터를 누르고, input이 더이상 존재하지 않는다면 submit이 된다.
 하지만 submit이 가동되면 웹사이트가 자동으로 새로고침을 수행한다 ㄷㄷ
+form 의 submit에서 새로고침은 default 기본동작이다.
+
+login 버튼을 클릭하면 submit  하는 기능도 html에서 구현되므로,
+JS에서 loginBtn 과, 클릭시 작용하는 액션 등을 정의할 필요도 없어진다.
+
+
+//////////////////// 중요 ////////////////////////////////////////
+
+function onLoginSubmit(event){
+event.preventDefault(); // 브라우저가 기본 동작을 실행하지 못하게 막기 // event object는 preventDefault함수를 기본적으로 갖고 있음
+console.log(event);
+}
+
+loginForm.addEventListener("submit", onLoginSubmit); // submit 이벤트가 발생한다면, onLoginSubmit함수를 실행시킨다는 의미 // JS는 onLoginSubmit함수 호출시 인자를 담아서 호출함. 해당 인자는 event object를 담은 정보들
+
+★ 중요 ★
+form을 submit하면 브라우저는 기본적으로 페이지를 새로고침 하도록 되어있다. << 우리가 원하는 것이 아님!
+preventDefault() 함수를 추가함으로써 브라우저의 기본 동작을 막을 수 있다!!
+
+이 preventDefault 함수는 EventListener 함수의 '첫 번째 argument' 안에 있는 함수이다. 첫 arument는 지금 막 벌어진 event들에 대한 정보를 갖고 있다.
+JS는(기본적으로)argument를 담아서 함수를 호출하는데, 이 argument가 기본 정보들을 제공하고 있다. ex) 누가 submit주체인지, 몇 시에 submit을 했는지 등등 콘솔에 출력해보면 알 수 있음
+
+////////////////////////////////////////////////////////////
