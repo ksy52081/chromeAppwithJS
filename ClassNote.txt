@@ -438,3 +438,13 @@ localStorage.setItem("username", "syKim");
 localStorage.getItem("username")
 localStorage.removeItem("username")
 
+#4.6 
+한번 localStorage에 데이터를 저장했으면,
+다음번 새로고침때 이미 localStorage에 데이터 존재 여부를 확인하고
+있을 경우에는 로그인/유저네임 추가하기 버튼을 보이지 않고
+바로 greeting 레이아웃을 보여줬으면 좋겠다.
+
+그렇다면 기본적으로
+모든 레이아웃을 숨겨놓고
+localStorage에 저장되어 있지 않다면 loginform을
+localStorage에 저장되어 있다면 greeting을 보여준다.(hidden을 없앰)
