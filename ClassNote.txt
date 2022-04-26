@@ -467,8 +467,23 @@ date.getDay() //일월화~금토일
 .getHours
 getMinutes
 getseconds
-
+※ 출력되는 결과값은 String이 아닌 integer이다.
 
 지금은 19:22:01 이 아니라
 19:22:1 꼴로 나오는 상태이다.
 이를 고치려면 ~ #5.2
+
+#5.2 
+clock.innerText =`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+꼴은
+9:11:1 과 같은 결과가 출력된다
+우리는 
+09:11:01 과 같은 형태로 출력되길 바란다.
+그 때 사용하는 함수는 character.padStart(length, character); 이다.
+글자 변수에 내장되어 있는 함수이며
+
+"1".padStart(2,"0") 을 입력하면
+"01"을 출력한다.
+
+"1".padEnd(2,"0") 을 입력하면
+"10"을 출력한다.
