@@ -24,6 +24,7 @@ loginForm.addEventListener("submit", onLoginSubmit);
 
 const savedUsername = localStorage.getItem(USERNAME_KEY);
 console.log(savedUsername);
+
 if(savedUsername === null){
     //show the form
     loginForm.classList.remove(HIDDEN_CLASSNAME);
