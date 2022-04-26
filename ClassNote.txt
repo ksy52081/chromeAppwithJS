@@ -448,3 +448,27 @@ localStorage.removeItem("username")
 모든 레이아웃을 숨겨놓고
 localStorage에 저장되어 있지 않다면 loginform을
 localStorage에 저장되어 있다면 greeting을 보여준다.(hidden을 없앰)
+
+#5.0
+시간 관련된 함수
+interval : 매 순간 주기적으로 해야하는것, 매2초
+서버를 확인하거나 주식시장 api를 확인하거나 
+setinterval(함수, 5000); //0초에 한번 보여주고 5초뒤가 아닌, 5초 기다렸다가 이후에 출력하기 시작함.
+//즉, 아무리 setinterval을 쓴다 하더라도, 새로고침하자마자 한번 보여주고 시작하려면
+//앞에 한번 출력해주고 interval을 수행해야함.
+timeout(함수, 1000);
+
+Date 함수
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Date
+const date = new Date()
+
+date.getDate() //~일
+date.getDay() //일월화~금토일
+.getHours
+getMinutes
+getseconds
+
+
+지금은 19:22:01 이 아니라
+19:22:1 꼴로 나오는 상태이다.
+이를 고치려면 ~ #5.2
