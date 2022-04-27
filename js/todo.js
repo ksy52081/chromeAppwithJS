@@ -54,10 +54,10 @@ toDoForm.addEventListener("submit", handleToDoSubmit)
 // }
 
 
-const SavedTodos = localStorage.getItem(TODOS_KEY);
+const savedTodos = localStorage.getItem(TODOS_KEY);
 
-if(saveToDos){ 
-    const parsedToDos = JSON.parse(saveToDos);
+if(savedTodos){ 
+    const parsedToDos = JSON.parse(savedTodos);
     toDos = parsedToDos; //localStorage에 값이 있으면 그걸 비어있는 toDos에다 채워넣겠다
-    parsedToDos.array.forEach(paintToDo);
+    parsedToDos.forEach(paintToDo);
 }
