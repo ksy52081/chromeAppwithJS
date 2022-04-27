@@ -61,3 +61,15 @@ if(savedTodos){
     toDos = parsedToDos; //localStorage에 값이 있으면 그걸 비어있는 toDos에다 채워넣겠다
     parsedToDos.forEach(paintToDo);
 }
+
+
+function sexyFilter(item){
+    return item !==3
+}
+[1,2,3,4].filter(sexyFilter) //forEach 함수와 비슷하게, array에 아이템을 하나씩 불러와 변수함수에 하나씩 돌려본다.
+
+function sexyFilter2(item){
+    return item.text !== "aaaaa"
+}
+const sampleList = [{text:"aaaaa"}, {text:"bbbbb"}, {text:"acbca"}];
+sampleList.filter(sexyFilter2);
