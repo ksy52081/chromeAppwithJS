@@ -718,4 +718,71 @@ string의 형태가 아닌 상태로 저장된다.
 예) key: todos value: ["a", "b", "c"]
 
 
-여전히 새로고침하면 localStorage에 값들이 사라진다.-> #6.4
+여전히 새로고침하면 localStorage에는 값들이 있지만 화면에는 사라진다.-> #6.4
+
+#6.4
+다른타입 -> string : stringify()
+string -> 다른타입 : parse()
+
+if(saveToDos) === if(saveToDos!== null) === 만일 saveToDos가 있다면 === localStorage에 key : "todos" 가 있다면 
+
+json object는 array에 있는 각각의 item에 대해서 각기 function을 실행할 수 있다.
+
+arrowfunction에 대하여
+
+함수 표현방법 1)
+function sayHello(item){
+    console.log("this is the turn of ", item);
+}
+parsedToDos.array.forEach(sayHello); 
+
+함수 표현방법 2) arrowfucntion
+parsedToDos.array.forEach((item => console.log("this is the turn of", item))); 
+
+표현방법1)과 표현방법2)는 같은 코드이다.
+
+
+어려워 하시는 댓글이 많아서 올립니다.
+1. To-Do-List 작성시 localStorage 에 저장이 됩니다.
+2. 근데 저장이 될때 string data type 으로 저장이 되요. (예: "[a,b,c,d,e]")
+3. 그래서 JSON.parse()를 통해 string data type을 object로 바꾼거에요. 근데 이 Object는 Array 같이 바뀌었어요. 즉 index를 통해 value를 access할수 있어요
+예: "[a,b,c,d]" (string) => [a, b, c, d] (array);
+array[0] = a; array[1] = b; array[2] = c; array[3] = d
+5. array 형태가 된 값을 parsedToDos 라는 const variable 에다가 넣어놨어요.
+6. 이 상태에서 parsedToDos 는 array 형태라고 가정했을때 .foreach() 라는 function 을 사용할수 있는데 이건 mdn 웹사이트 가면 나오지만 그냥 단순히 array 에 들어있는 모든 값을 iterate (순찰(?)) 할수 있는 function 입니다.
+7. 즉 index 0 부터 마지막 index 까지 한바뀌 도는건데 돌면서 그 값들을 item 라는 곳 또는 element에 (이름은 정하기 나름) 저장이 되는거에요.
+ex)
+Array = [ a, b, c, d]
+Array.foreach( (item) => console.log(item))
+// output:
+a
+b
+c
+d
+여기서 부터 설명이 좀 어려운데 밑에 있는 웹사이트 가서 editor로 좀 놀아보시면 .foreach()가 이해 되실거에요. for loop 이나 while loop 으로 할수 있는 기능을 더 짧은 코드로 할수 있게 만든것 같아요 ^^
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+도움이 되기를 바라면서...... ㅎㅎ
+
+
+
+이슈1
+localStorage는 string format밖에 지원을 안한답니다. 따라서 뭐든지 간에 다 string으로 변환시켜줘버려요. 근데 JSON.stringify도 string으로 변환시켜주잖아요? 그럼 무슨 차이가 있나 이런 생각에 좀 찾아보았습니다.
+
+const todo = ["hi","hello"]
+localStorage.setItem('todo',todo)
+localStorage.getItem('todo')
+>>> 'hi,hello' ( 기존 리스트 형식 없애고 내용물만 string화 시킴)
+localStorage.setItem('todo',JSON.stringify(todo))
+localStorage.getItem('todo')
+>>> '["hi","hello"]' (리스트 째로 string화 시켜줌)
+
+이런 차이가 있더라구요
+JSON.stringify로 넘겨준 자료는 JSON.parse로 받아와서 이전 모습 그대로 소생? 시킬 수 있지만
+그냥 넘겨준 자료(localStorage.setItem('todo',todo)는 JSON.parse로 받아오지 못해요 오류가 납니다.
+
+
+이슈2
+제대로 이해한게 맞다면 local storage에 array로 저장이 안되기 때문에 JSON.stringify로 array처럼 생긴 string으로 저장한 후 다시 JSON.parse 이용해 array로 꺼내는 방법이네요
+array.foreach는 받아온 array를 for 반복문 없이 item 하나씩 function에 넣을 수 있는 신기한 녀석이네요
+
+

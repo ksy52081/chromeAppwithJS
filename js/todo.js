@@ -3,27 +3,21 @@ const toDoInput = toDoForm.querySelector("input");
 // const toDoInput = document.querySelector("#todo-form input");
 const todoList = document.querySelector("#todo-list");
 
+const TODOS_KEY = "todos"
+
 const toDos = [];
 
 function saveToDos(){
 
-    localStorage.setItem("todos", JSON.stringify(toDos)); //
+    localStorage.setItem(TODOS_KEY, JSON.stringify(toDos)); //
 };
 
 function deleteToDo(event){
-    //버튼은 todo 갯수만큼 생성된다
-    //특정 버튼을 누르면 해당하는 todo만을 지우기 위해서는
-    //버튼이 어떤 버튼인지 특정할 수 있어야 한다 ~ event.path event.parentNode
-    // console.dir(event.target.parentElement);
-    // event.target = 이벤트가 발생한 html의 element
-    // console.log(event.target.parentElement.innerText); 
     const targetList = event.target.parentElement;
     targetList.remove();
 }
 
-
 function paintToDo(inputTodo){
-    // console.log("i will paint", inputTodo);
     const listItem = document.createElement("li");
     const spanOfList = document.createElement("span");
     const button = document.createElement("button");
@@ -46,3 +40,18 @@ function handleToDoSubmit(event){
 }
 
 toDoForm.addEventListener("submit", handleToDoSubmit)
+
+
+function sayHello(item){
+    console.log("this is the turn of ", item);
+}
+
+
+const SavedTodos = localStorage.getItem(TODOS_KEY);
+
+if(saveToDos){ //만일 saveToDos가 있다면 = localStorage에 key : "todos" 가 있다면 = saveToDos!== null
+    const parsedToDos = JSON.parse(saveToDos);
+    parsedToDos.array.forEach(sayHello); //아랫 것과 같은 코드다.
+    parsedToDos.array.forEach((item => console.log("this is the turn of", item))); //위엣것과 같은 코드다
+
+}
