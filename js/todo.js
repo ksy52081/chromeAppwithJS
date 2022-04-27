@@ -15,18 +15,20 @@ function saveToDos(){
 
 function deleteToDo(event){
     const targetList = event.target.parentElement;
+    console.log(targetList.id);
     targetList.remove();
 }
 
-function paintToDo(inputTodo){
+function paintToDo(inputTodo){ //이제 inputTodo는 String이 아닌 object {text:~~ , id:~~} 가 되었다.
     const listItem = document.createElement("li");
+    listItem.id= inputTodo.id; //li 안에 id에 object 의 id로 넣고싶다
     const spanOfList = document.createElement("span");
     const button = document.createElement("button");
     button.innerText = "X";
     button.addEventListener("click", deleteToDo)
     listItem.appendChild(spanOfList);
     listItem.appendChild(button);
-    spanOfList.innerText = inputTodo;//?? 이상하다. innerText를 나중에 넣었는데 왜 멀쩡히 들어가있지?
+    spanOfList.innerText = inputTodo.text;//?? 이상하다. innerText를 나중에 넣었는데 왜 멀쩡히 들어가있지?
     todoList.appendChild(listItem);
 }
 
@@ -35,8 +37,12 @@ function handleToDoSubmit(event){
     console.log(toDoInput.value);
     const newToDo = toDoInput.value; //새 변수에 입력값 저장
     toDoInput.value = ""; //엔터를 쳤을때 입력칸이 깔끔하게 비워지도록
-    toDos.push(newToDo);
-    paintToDo(newToDo);
+    const newTodoObj = {
+        text : newToDo,
+        id : Date.now(),
+    }; // 단순히 string을 리스트 array에 넣지 않고, id와 text가 있는 object를 리스트 array에 넣겠다.
+    toDos.push(newTodoObj);
+    paintToDo(newTodoObj);
     saveToDos(); //하나씩 추가해도, 중복이 쌓이지 않고, key: todos에 해당하는 value가 업데이트 된다.
 }
 
