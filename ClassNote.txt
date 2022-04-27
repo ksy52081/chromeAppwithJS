@@ -910,3 +910,43 @@ todos.filter(sexyFilter)
 [{…}]0: {text: 'lalala'} length: 1 [[Prototype]]: Array(0)
 
 -> 함수(sexyFilter)의 argument는 항상 달라도 상관 xx, filter가 각 todos의 item을 todo의 argument로 넣어 줌
+
+
+#7.8
+
+filter 함수는 원래 있는 녀석을 갈아치워주는게 아니다.
+arr = [1,2,3,4];
+const newArr = arr.filter(item => item >2);
+// arr 와 newArr은 다르다.
+
+
+Q1 
+toDo.id 는 newTodoObj에서 Date.now()의 값을 받은 숫자고요, li의 id 값으로는 paintTodo 함수에서 newTodoObj.id 즉 똑같은 Date.now()인 숫자를 대입했구요. 근데 왜 li.id는 string인건가요?
+
+A1
+저도 궁금해서 조사해보았는데, 원인은 paintToDo 함수 내에 있는
+const li = document.createElement("li");
+li.id = newTodo.id;
+이 부분에 있더라구요.
+li는 DOM을 직접 건드린건데, mdn 문서 뒤져보니 DOM의 id는 문자열이라고 나와 있었습니다. 즉 우리가 newTodo.id로 number를 넣어주었어도, DOM에선 string으로 형변환해서 받아들이는거 같습니다.
+
+mdn 문서 링크 공유합니다!
+https://developer.mozilla.org/ko/docs/Web/API/Document/getElementById
+
+매개변수 id 부분 보시면 설명 나와있습니다!
+
+
+Q2 localStorage의 삭제 메커니즘?
+A2
+li.remove(); 메서드는 locarStorage 키값을 지우는게 아니라 const li = event.target.parentElement; 클릭한 부모태그를 dom에 접근해서 지우는거 아닌가요?
+저는 saveTodos(); 전 까지는 locarStorage 데이터는 그대로이고,
+toDos = toDos.filter((todo) => todo.id !== parseInt(li.id));
+에서 기존 toDos 배열에 필터 메서드로
+기존 toDos배열에서 클릭한것을 뺀 배열을 새롭게 업데이트해주고
+function saveTodos(){
+localStorage.setItem('todos', JSON.stringify(toDos));
+}
+를 통해 새롭게 업데이트된 toDos 배열을 다시 locarStorage에 저장한걸로 이해했어요
+
+toDos = toDos.filter((todo) => todo.id !== parseInt(li.id)); 여기서 필터 중괄호 안에 todo는 toDos에 element 라고 이해하시면 편하실거에요 x,k,r, 아무거나입력하셔도 작동되요
+각 element에 todo.id !== parseInt(li.id) 실행해서 true 인것만 추려서 새롭게 배열을 만드는거일거에요

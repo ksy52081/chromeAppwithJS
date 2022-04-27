@@ -15,8 +15,10 @@ function saveToDos(){
 
 function deleteToDo(event){
     const targetList = event.target.parentElement;
-    console.log(targetList.id);
+    // console.log(targetList.id);
     targetList.remove();
+    toDos = toDos.filter((toDoItem) => toDoItem.id !== parseInt(targetList.id)); //targetList.id와 똑같은 id를 가지고 있는 녀석은 false를 리턴해 filter 함수가 쳐내게 하라
+    saveToDos(); // toDos에서 원하는 걸 쳐냈으면, localStorage에도 쳐낸 결과물을 업데이트 덧씌우기하자.
 }
 
 function paintToDo(inputTodo){ //이제 inputTodo는 String이 아닌 object {text:~~ , id:~~} 가 되었다.
@@ -63,13 +65,13 @@ if(savedTodos){
 }
 
 
-function sexyFilter(item){
-    return item !==3
-}
-[1,2,3,4].filter(sexyFilter) //forEach 함수와 비슷하게, array에 아이템을 하나씩 불러와 변수함수에 하나씩 돌려본다.
+// function sexyFilter(item){
+//     return item !==3
+// }
+// [1,2,3,4].filter(sexyFilter) //forEach 함수와 비슷하게, array에 아이템을 하나씩 불러와 변수함수에 하나씩 돌려본다.
 
-function sexyFilter2(item){
-    return item.text !== "aaaaa"
-}
-const sampleList = [{text:"aaaaa"}, {text:"bbbbb"}, {text:"acbca"}];
-sampleList.filter(sexyFilter2);
+// function sexyFilter2(item){
+//     return item.text !== "aaaaa"
+// }
+// const sampleList = [{text:"aaaaa"}, {text:"bbbbb"}, {text:"acbca"}];
+// sampleList.filter(sexyFilter2);
