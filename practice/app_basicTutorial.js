@@ -76,6 +76,7 @@ const player = {
         console.log("hello!" + otherPersonsName + "nice to meet you")
     }
 // 밖에 있을 때 함수 선언하는 거랑 조금 다르지
+
 }
 
 player.sayHello("Lynn");
