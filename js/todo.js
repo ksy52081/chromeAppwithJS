@@ -5,7 +5,8 @@ const todoList = document.querySelector("#todo-list");
 
 const TODOS_KEY = "todos"
 
-const toDos = [];
+// const toDos = [];
+let toDos = []; //수정 가능한 변수로 변경
 
 function saveToDos(){
 
@@ -42,16 +43,15 @@ function handleToDoSubmit(event){
 toDoForm.addEventListener("submit", handleToDoSubmit)
 
 
-function sayHello(item){
-    console.log("this is the turn of ", item);
-}
+// function sayHello(item){
+//     console.log("this is the turn of ", item);
+// }
 
 
 const SavedTodos = localStorage.getItem(TODOS_KEY);
 
-if(saveToDos){ //만일 saveToDos가 있다면 = localStorage에 key : "todos" 가 있다면 = saveToDos!== null
+if(saveToDos){ 
     const parsedToDos = JSON.parse(saveToDos);
-    parsedToDos.array.forEach(sayHello); //아랫 것과 같은 코드다.
-    parsedToDos.array.forEach((item => console.log("this is the turn of", item))); //위엣것과 같은 코드다
-
+    toDos = parsedToDos; //localStorage에 값이 있으면 그걸 비어있는 toDos에다 채워넣겠다
+    parsedToDos.array.forEach(paintToDo);
 }
